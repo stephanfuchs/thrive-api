@@ -2,4 +2,6 @@
 
 class User < ApplicationRecord
   self.table_name = 'user'
+
+  has_many :user_accounts
 end
