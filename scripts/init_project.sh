@@ -3,7 +3,7 @@
 # echo "########################################################"
 # echo " "
 # echo "For more information see:"
-# echo "https://www.notion.so/cialfo/Setting-Up-cialfo-api-Locally-85fef4dbddf24d57afef03ced3f50d69"
+# echo "URL"
 # echo "If you do not have access to Notion, just ask"
 # echo " "
 # echo "########################################################"
