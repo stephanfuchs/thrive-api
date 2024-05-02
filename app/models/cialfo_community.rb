@@ -1,0 +1,2 @@
+class CialfoCommunity < ApplicationRecord
+end

@@ -1,0 +1,3 @@
+[submodule "config/deploy/cialfo-deploy"]
+	path = config/deploy/cialfo-deploy
+	url = git@github.com:cialfo/app-cialfo-co-deploy

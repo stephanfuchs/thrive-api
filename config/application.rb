@@ -1,0 +1,50 @@
+require_relative "boot"
+
+require "rails"
+# Pick the frameworks you want:
+require "active_model/railtie"
+require "active_record/railtie"
+require "action_controller/railtie"
+require "action_view/railtie"
+# require "sprockets/railtie"
+require "rails/test_unit/railtie"
+
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
+
+# Ensure that dotenv is loaded beforehand. See https://github.com/bkeepers/dotenv#note-on-load-order
+Dotenv::Railtie.load
+
+module CoreApi
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 6.1
+
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
+
+    # Only loads a smaller set of middleware suitable for API only apps.
+    # Middleware like session, flash, cookies can be added back manually.
+    # Skip views, helpers and assets when generating a new resource.
+    config.api_only = true
+
+    config.autoload_paths += Dir["#{config.root}/lib/utilities/**/"]
+
+    config.cache_store = :redis_cache_store, {
+      url: "redis://#{ENV['REDIS_HOST']}:6379/0",
+      namespace: 'api_cialfo_co_cache',
+      expires_in: 90.minutes
+    }
+
+    # For sidekiq web
+    config.session_store :cookie_store, key: '_interslice_session'
+
+    config.queue_adapter = :sidekiq
+  end
+end

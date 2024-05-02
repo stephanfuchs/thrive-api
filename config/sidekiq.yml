@@ -1,0 +1,14 @@
+development:
+  :concurrency: 5
+test:
+  :concurrency: 5
+staging:
+  :concurrency: 20
+production:
+  :concurrency: 30
+
+:max_retries: 1
+
+:queues:
+  - default
+  - searchkick
