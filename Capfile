@@ -1,9 +1,3 @@
-# Updating submodule configuration
-# TODO: (Stephan) this is a bit dirty and needs improvements
-system "git config submodule.recurse true"
-# Initializing and pulling submodules
-system "git submodule update --init --recursive"
-
 # Load DSL and set up stages
 require "capistrano/setup"
 
