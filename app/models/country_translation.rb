@@ -1,2 +1,0 @@
-class CountryTranslation < ApplicationRecord
-end
