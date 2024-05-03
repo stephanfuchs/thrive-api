@@ -46,6 +46,7 @@ GEM
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.5.2)
       aws-eventstream (~> 1, >= 1.0.2)
+    base64 (0.2.0)
     blueprinter (0.25.3)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
@@ -109,6 +110,8 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    graphql (2.3.2)
+      base64
     hashie (5.0.0)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
@@ -257,6 +260,7 @@ DEPENDENCIES
   elasticsearch
   factory_bot_rails
   faker
+  graphql
   jbuilder (~> 2.7)
   jwt
   listen (~> 3.3)
