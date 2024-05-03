@@ -110,6 +110,8 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    graphiql-rails (1.10.0)
+      railties
     graphql (2.3.2)
       base64
     hashie (5.0.0)
@@ -218,6 +220,13 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.11.0)
+    sprockets (4.2.1)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.4.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      sprockets (>= 3.0.0)
     sshkit (1.21.4)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -260,6 +269,7 @@ DEPENDENCIES
   elasticsearch
   factory_bot_rails
   faker
+  graphiql-rails
   graphql
   jbuilder (~> 2.7)
   jwt
@@ -282,6 +292,7 @@ DEPENDENCIES
   rspec-rails
   searchkick
   sidekiq
+  sprockets-rails
   typhoeus
   tzinfo-data
   will_paginate
