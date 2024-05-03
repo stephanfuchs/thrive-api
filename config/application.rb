@@ -16,7 +16,7 @@ Bundler.require(*Rails.groups)
 # Ensure that dotenv is loaded beforehand. See https://github.com/bkeepers/dotenv#note-on-load-order
 Dotenv::Railtie.load
 
-module CoreApi
+module ThriveApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
