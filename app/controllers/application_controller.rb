@@ -2,12 +2,8 @@ class ApplicationController < ActionController::API
   # include Pundit::Authorization
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  before_action :verify_token
+  # before_action :verify_token
   # before_action :current_user
-
-  def verify_token
-    binding.pry
-  end
 
   # def verify_token
   #   token = request.headers['Authorization']

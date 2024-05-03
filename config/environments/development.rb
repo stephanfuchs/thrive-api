@@ -1,5 +1,4 @@
 require "active_support/core_ext/integer/time"
-require "./lib/proxy_to_old_rails_api"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -50,9 +49,5 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.hosts << "api-2.cialfo.test"
-
-  # Used for proxying the queries for v1-v4 to old Rails-API
-  # config.middleware.use ProxyToOldRailsApi
-  config.middleware.insert_before 0, ProxyToOldRailsApi
+  # config.hosts << "api-2.cialfo.test"
 end
