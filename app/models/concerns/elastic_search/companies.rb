@@ -5,16 +5,15 @@
 #   2. https://dev.to/mahmoudsultan36/patching-searchkich-gem-to-add-custom-queries-by-default-21m0
 
 module ElasticSearch
-  module UserAccounts
+  module Companies
     extend ActiveSupport::Concern
     included do
-      searchkick default_fields: [:first_name, :last_name], word_start: [:first_name, :last_name], word: [:first_name, :last_name], callbacks: false, case_sensitive: false, merge_mappings: true
+      searchkick default_fields: [:name, :website], word_start: [:name, :website], word: [:name, :website], callbacks: false, case_sensitive: false, merge_mappings: true
 
       def search_data
         slice(
-          :first_name,
-          :id,
-          :last_name,
+          :name,
+          :website,
         )
       end
 
