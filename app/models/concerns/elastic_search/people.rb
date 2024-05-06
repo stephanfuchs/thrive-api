@@ -36,7 +36,7 @@ module ElasticSearch
           elastic_search(term.presence || '*',
             misspellings: { prefix_length: 2 },
             match: :word_start,
-            operator: :or,
+            operator: :and,
             limit: 10,
             load: false)&.results
         end
