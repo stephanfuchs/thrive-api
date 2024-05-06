@@ -5,4 +5,6 @@ class Person < ApplicationRecord
   include ElasticSearch::People
 
   has_many :person_contacts
+  has_many :person_companies
+  has_many :companies, through: :person_companies
 end

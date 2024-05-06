@@ -13,11 +13,21 @@ module ElasticSearch
       scope :search_import, -> {
         includes(
           :person_contacts,
+          person_companies: [:company],
         )
       }
 
       def search_data
-        contacts = person_contacts.map { |contact| contact.slice(:id, :contact_type, :contact_value, :is_primary) }
+        contacts_data = person_contacts.map { |contact| contact.slice(:id, :contact_type, :contact_value, :is_primary) }
+        companies_data = person_companies.map do |person_company|
+          {
+            company: {
+              type: person_company.company.type,
+              id: person_company.company.id,
+              name: person_company.company.name
+            },
+          }.merge(person_company.slice(:id, :is_current))
+        end
         slice(
           :account_id,
           :id,
@@ -27,7 +37,8 @@ module ElasticSearch
           :full_name,
           :reversed_full_name,
         ).merge(
-          contacts: contacts
+          contacts: contacts_data,
+          companies: companies_data,
         )
       end
 
