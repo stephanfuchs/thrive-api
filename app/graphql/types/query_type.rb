@@ -31,5 +31,7 @@ module Types
     description "The query root of this schema"
 
     field :post, resolver: Resolvers::PostResolver
+    # Define your SearchPersonV2 query here
+    field :searchPerson_v2, resolver: Resolvers::SearchPersonV2Resolver
   end
 end
