@@ -8,13 +8,24 @@ class GraphqlController < ApplicationController
 
   def execute
     variables = prepare_variables(params[:variables])
-    query = params[:query]
+    query = params[:query]&.sub(/^\nquery/, '')
     operation_name = params[:operationName]
+    # binding.pry
     context = {
       # Query context goes here, for example:
       # current_user: current_user,
     }
+    # HACK version
+    if variables["searchPerson_v2_searchTerm"]
+      # binding.pry``
+      query = "{ \n  searchpersonV2(searchTerm: \"#{variables["searchPerson_v2_searchTerm"]}\") {\n    id\n    firstName\n    lastName\n    contacts {\n      id\n      isPrimary\n      contactType\n      contactValue\n    }\n    company {\n      id\n      name\n      type\n    }\n  }\n}"
+    end
+
     result = ThriveApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+
+    # HACK to convert camelcase to snakecase for demo
+    result['data'].deep_transform_keys! { |key| key.to_s.underscore }
+
     render json: result
   rescue StandardError => e
     raise e unless Rails.env.development?

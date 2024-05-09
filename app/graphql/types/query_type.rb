@@ -33,5 +33,31 @@ module Types
     field :post, resolver: Resolvers::PostResolver
     # Define your SearchPersonV2 query here
     field :searchPerson_v2, resolver: Resolvers::SearchPersonV2Resolver
+
+    # def searchPerson_v2(searchTerm:, exact:, limit:, offset:, email_search:)
+    #   # Your search logic goes here
+    #   # For example, if you have a Person model:
+    #   binding.pry
+    #   persons = Person.search(searchTerm, exact, limit, offset, email_search)
+    #   persons
+    # end
+
+    # field :search_person_v2, Types::SearchPersonV2Type, null: false do
+    #   argument :search_term, String, required: true
+    #   argument :limit, Int, required: false
+    #   argument :offset, Int, required: false
+    #   argument :exact, Boolean, required: false
+    #   argument :email_search, Boolean, required: false
+    # end
+
+    # def search_person_v2(search_term:, limit: 20, offset: 0, exact: false, email_search: true)
+    #   # Your logic to fetch data based on the provided arguments
+    #   # Replace this with your actual implementation
+    #   # Example:
+    #   # Contact.search(search_term, limit, offset, exact, email_search)
+    #   # Company.search(search_term, limit, offset, exact, email_search)
+    #   # User.search(search_term, limit, offset, exact, email_search)
+    #   # This should return the data in the expected structure
+    # end
   end
 end

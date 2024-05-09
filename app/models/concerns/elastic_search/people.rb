@@ -20,14 +20,16 @@ module ElasticSearch
       def search_data
         contacts_data = person_contacts.map { |contact| contact.slice(:id, :contact_type, :contact_value, :is_primary) }
         companies_data = person_companies.map do |person_company|
+          # TODO: (Stephan) reenable this check, since we do not want companies that do not exist anymore
+          # return unless person_company && person_company.company
           {
             company: {
-              type: person_company.company.type,
-              id: person_company.company.id,
-              name: person_company.company.name
+              type: person_company&.company&.type,
+              id: person_company&.company&.id,
+              name: person_company&.company&.name
             },
           }.merge(person_company.slice(:id, :is_current))
-        end
+        end.compact.presence || []
         slice(
           :account_id,
           :id,

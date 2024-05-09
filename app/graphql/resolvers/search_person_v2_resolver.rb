@@ -49,18 +49,18 @@ module Resolvers
         # result[:contacts] = person.contacts
 
         # Fetch companies for the person
-        # person.companies.each do |company|
-        #   company_data = {
-        #     company: {
-        #       type: company.type,
-        #       id: company.id,
-        #       name: company.name
-        #     },
-        #     is_current: company.is_current,
-        #     id: company.id
-        #   }
-        #   result[:company] << company_data
-        # end
+        person.companies.each do |company|
+          company_data = {
+            company: {
+              type: company.type,
+              id: company.id,
+              name: company.name
+            }.with_indifferent_access,
+            is_current: company.is_current,
+            id: company.id
+          }.with_indifferent_access
+          result[:company] << company_data
+        end
 
         search_results << result
       end
