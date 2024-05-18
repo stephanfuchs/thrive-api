@@ -3,10 +3,15 @@ require_relative "boot"
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
+# require "active_job/railtie"
 require "active_record/railtie"
+# require "active_storage/engine"
 require "action_controller/railtie"
+# require "action_mailer/railtie"
+# require "action_mailbox/engine"
+# require "action_text/engine"
 require "action_view/railtie"
-# require "sprockets/railtie"
+# require "action_cable/engine"
 require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -14,12 +19,13 @@ require "rails/test_unit/railtie"
 Bundler.require(*Rails.groups)
 
 # Ensure that dotenv is loaded beforehand. See https://github.com/bkeepers/dotenv#note-on-load-order
-Dotenv::Railtie.load
+Dotenv::Rails.load
 
 module ThriveApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    # config.load_defaults 6.1
+    config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -34,8 +40,6 @@ module ThriveApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.autoload_paths += Dir["#{config.root}/lib/utilities/**/"]
-
     config.cache_store = :redis_cache_store, {
       url: "redis://#{ENV['REDIS_HOST']}:6379/0",
       namespace: 'api_cialfo_co_cache',
@@ -44,6 +48,9 @@ module ThriveApi
 
     # For sidekiq web
     config.session_store :cookie_store, key: '_interslice_session'
+    # TODO: (Stephan) investigate impact of this change. https://stackoverflow.com/a/74020045
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use config.session_store, config.session_options
 
     config.queue_adapter = :sidekiq
   end

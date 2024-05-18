@@ -5,12 +5,11 @@ ruby '3.1.2'
 
 # CORE: RAILS
 # INFO: (Stephan) See https://blog.sundaycoding.com/blog/2016/08/10/how-to-remove-action-cable-from-a-rails-app/
-# gem 'rails', '~> 6.1.7'
-gem 'activerecord', '~> 6.1.7'
-gem 'activemodel', '~> 6.1.7'
-gem 'actionpack', '~> 6.1.7'
-gem 'activesupport', '~> 6.1.7'
-gem 'railties', '~> 6.1.7'
+gem 'activerecord', '~> 7.0.0'
+gem 'activemodel', '~> 7.0.0'
+gem 'actionpack', '~> 7.0.0'
+gem 'activesupport', '~> 7.0.0'
+gem 'railties', '~> 7.0.0'
 
 # CORE: CONFIG/ENV
 gem 'dotenv-rails'
@@ -77,6 +76,7 @@ gem 'will_paginate' # pagination
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rails', '~> 7.0.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails"
   gem "factory_bot_rails"
