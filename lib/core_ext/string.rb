@@ -7,17 +7,17 @@ class String
     self.gsub(/\W/, '_').downcase
   end
 
-  # TODO: (Stephan) revisit after upgrading to Rails 5
-  # DEPRECATION WARNING: You attempted to assign a value which is not explicitly `true` or `false`
-  # ("True") to a boolean column. Currently this value casts to `false`. This will change to
-  # match Ruby's semantics, and will cast to `true` in Rails 5. If you would like to maintain the
-  # current behavior, you should explicitly handle the values you would like cast to `false`.
-  #
-  # https://blog.eq8.eu/til/convert-string-true-and-string-false-to-boolean-with-rails.html
-  # more details https://stackoverflow.com/a/44322375
-  def to_boolean
-    ActiveRecord::Type::Boolean.new.cast(self)
-  end
+  # # TODO: (Stephan) revisit after upgrading to Rails 5
+  # # DEPRECATION WARNING: You attempted to assign a value which is not explicitly `true` or `false`
+  # # ("True") to a boolean column. Currently this value casts to `false`. This will change to
+  # # match Ruby's semantics, and will cast to `true` in Rails 5. If you would like to maintain the
+  # # current behavior, you should explicitly handle the values you would like cast to `false`.
+  # #
+  # # https://blog.eq8.eu/til/convert-string-true-and-string-false-to-boolean-with-rails.html
+  # # more details https://stackoverflow.com/a/44322375
+  # def to_boolean
+  #   ActiveRecord::Type::Boolean.new.cast(self)
+  # end
 
   def to_class
     self.capitalize.scan(/[a-z|A-Z|0-9]/).join
