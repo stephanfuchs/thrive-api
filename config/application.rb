@@ -48,9 +48,6 @@ module ThriveApi
 
     # For sidekiq web
     config.session_store :cookie_store, key: '_interslice_session'
-    # TODO: (Stephan) investigate impact of this change. https://stackoverflow.com/a/74020045
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use config.session_store, config.session_options
 
     config.queue_adapter = :sidekiq
   end
