@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   # webhook
   post '/aws/:key/event', to: 'aws#events_received'
 
+  # namespace :v1, defaults: { format: 'json' } do
+  #   resources :demos, only: [:index, :show] do
+  #     collection do
+  #       get :demo
+  #     end
+  #   end
+  # end
+
   if Rails.env.development?
     mount Sidekiq::Web => '/sidekiq'
   end
