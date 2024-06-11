@@ -5,11 +5,11 @@ ruby '3.1.2'
 
 # CORE: RAILS
 # INFO: (Stephan) See https://blog.sundaycoding.com/blog/2016/08/10/how-to-remove-action-cable-from-a-rails-app/
-gem 'activerecord', '~> 7.0.0'
-gem 'activemodel', '~> 7.0.0'
-gem 'actionpack', '~> 7.0.0'
-gem 'activesupport', '~> 7.0.0'
-gem 'railties', '~> 7.0.0'
+gem 'activerecord', '~> 7.1', '>= 7.1.3.4'
+gem 'activemodel', '~> 7.1', '>= 7.1.3.4'
+gem 'actionpack', '~> 7.1', '>= 7.1.3.4'
+gem 'activesupport', '~> 7.1', '>= 7.1.3.4'
+gem 'railties', '~> 7.1', '>= 7.1.3.4'
 
 # CORE: CONFIG/ENV
 gem 'dotenv-rails'
@@ -25,6 +25,9 @@ gem 'elasticsearch'
 gem 'typhoeus' # https://github.com/ankane/searchkick#persistent-http-connections
 
 # ASYNC JOBS
+# INFO: (Stephan) https://github.com/aws/aws-sdk-rails/blob/main/README.md#aws-sqs-active-job
+gem 'aws-sdk-rails', '~> 3'
+# gem 'aws-sdk-sqs', '~> 1.74.0'
 gem 'sidekiq'
 # gem "sidekiq-cron"
 # gem 'whenever', require: false
@@ -50,7 +53,7 @@ gem 'capistrano-sidekiq', require: false
 gem 'capistrano3-puma',   require: false
 
 # WEB SERVER [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", "~> 6.0"
 
 # API QUERY LANGUAGE
 gem "graphql"
@@ -76,7 +79,7 @@ gem 'will_paginate' # pagination
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'rails', '~> 7.0.0'
+  gem 'rails', '~> 7.1', '>= 7.1.3.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails"
   gem "factory_bot_rails"
