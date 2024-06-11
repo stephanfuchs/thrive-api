@@ -97,6 +97,7 @@ group :development do
   gem 'capistrano-rails-console'
   gem 'aws-sdk-ec2'
   gem 'aws-sdk-autoscaling'
+  gem 'aws-sdk-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
