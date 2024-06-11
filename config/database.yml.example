@@ -1,0 +1,25 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_unicode_ci
+  host: <%= ENV.fetch('DATABASE_HOST') %>
+  username: <%= ENV.fetch('DATABASE_USERNAME') %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD') %>
+  database: <%= ENV.fetch('DATABASE_DATABASE') %>
+  port: <%= ENV.fetch('DATABASE_PORT') %>
+  schema_cache_path: tmp/schema/dump.yml
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

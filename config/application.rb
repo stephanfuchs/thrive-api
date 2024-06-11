@@ -42,7 +42,7 @@ module ThriveApi
 
     config.cache_store = :redis_cache_store, {
       url: "redis://#{ENV['REDIS_HOST']}:6379/0",
-      namespace: 'api_cialfo_co_cache',
+      namespace: 'api_asense_co_cache',
       expires_in: 90.minutes
     }
 

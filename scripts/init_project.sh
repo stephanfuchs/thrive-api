@@ -11,10 +11,9 @@
 # Copy example files
 echo "Copying example files..."
 cp config/database.yml.example config/database.yml
-cp config/database_pg.yml.example config/database_pg.yml
-cp config/secrets.yml.example config/secrets.yml
+cp config/master.key.example config/master.key
 
 # Copy setup for puma dev
-cp files/puma-dev/api-2.cialfo ~/.puma-dev/.
+cp files/puma-dev/api-dev2.asense ~/.puma-dev/.
 
 echo "Done"
