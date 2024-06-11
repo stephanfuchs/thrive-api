@@ -24,8 +24,6 @@ class AwsController < ActionController::API
     @message_body ||= JSON.parse(request.raw_post)
   end
 
-  end
-
   private
 
   def validate_key

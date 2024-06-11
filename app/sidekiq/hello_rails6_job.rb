@@ -4,7 +4,9 @@ class HelloRails6Job
 
   def perform(*args)
     # Do something (TO BE DELETED LATER)
-    puts "Hello from Rails 7 #{args}"
+    # binding.pry
+    # puts "Hello from Rails 7 #{args}"
+    puts "Hello from Rails 7 #{JSON.parse(args[0]['Message'])}"
     # sleep 60
   end
 end
