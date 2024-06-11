@@ -55,9 +55,6 @@ gem 'capistrano3-puma',   require: false
 # WEB SERVER [https://github.com/puma/puma]
 gem "puma", "~> 6.0"
 
-# API QUERY LANGUAGE
-gem "graphql"
-
 # OTHER
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -84,8 +81,6 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "faker"
-  gem "graphiql-rails"
-  gem 'sprockets-rails'
 end
 
 group :development do
