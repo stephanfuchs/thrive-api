@@ -1,0 +1,2 @@
+queues:
+  message_bus: 'https://sqs.us-west-2.amazonaws.com/657325794363/Stephan-DELETE-ME-DWA-6732'

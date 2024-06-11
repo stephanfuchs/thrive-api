@@ -1,0 +1,12 @@
+sqs = Aws::SQS::Client.new(region: 'your-region')
+sqs = Aws::SQS::Client.new(region: 'us-west-2')
+
+sqs.list_queues
+
+https://github.com/aws/aws-sdk-rails/tree/main?tab=readme-ov-file#aws-sqs-active-job
+
+
+https://sqs.us-west-2.amazonaws.com/657325794363/Stephan-DELETE-ME-DWA-6732
+
+# ProcessMessageBusJob.set(wait: 1.minute).perform_later('hello')
+ProcessMessageBusJob.perform_later('hello')
