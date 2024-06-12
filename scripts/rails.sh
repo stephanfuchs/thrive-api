@@ -1,2 +1,2 @@
 #!/bin/bash
-docker-compose --file docker/docker-compose.yml exec core-api bundle exec rails $*
+docker-compose --file docker/docker-compose.yml exec thrive-api bundle exec rails $*
