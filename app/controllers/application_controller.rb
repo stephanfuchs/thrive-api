@@ -12,12 +12,6 @@ class ApplicationController < ActionController::API
   #   return render json: { }, status: :unauthorized unless @payload && tenant
   # end
 
-  # def tenant
-  #   @tenant ||= begin
-  #     Tenant.live.find_by(sub_domain: @payload[:tenant_sub_domain]) if @payload[:tenant_sub_domain] == Apartment::Tenant.current
-  #   end
-  # end
-
   # def current_user
   #   @current_user ||= User.active.find(@payload[:user_id])
   # end
