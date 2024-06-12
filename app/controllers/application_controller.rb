@@ -2,19 +2,12 @@ class ApplicationController < ActionController::API
   # include Pundit::Authorization
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  # before_action :verify_token
-  # before_action :current_user
+  before_action :set_current_user
 
-  # def verify_token
-  #   token = request.headers['Authorization']
-  #   return render json: { }, status: :unauthorized unless token
-  #   @payload = SessionToken.verify(token.split('Bearer ').last)
-  #   return render json: { }, status: :unauthorized unless @payload && tenant
-  # end
-
-  # def current_user
-  #   @current_user ||= User.active.find(@payload[:user_id])
-  # end
+  def set_current_user
+    @current_user ||= CognitoJwtDecoder.new.decode_token(request.headers['Authorization'])
+    return render json: { }, status: :unauthorized unless @current_user
+  end
 
   # private
 
