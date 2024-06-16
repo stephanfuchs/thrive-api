@@ -3,7 +3,8 @@ class ApplicationController < ActionController::API
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def current_user
-    @current_user ||= CognitoJwtDecoder.new.decode_token(request.headers['Authorization'])
+    @current_user ||=
+      JwtUser.new(CognitoJwtDecoder.new.decode_token(request.headers['Authorization'])).call
   end
 
   private

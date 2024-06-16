@@ -1,6 +1,6 @@
 class DemoPolicy < ApplicationPolicy
-  # _record is :demo
   def initialize(user, _record)
+    super(user, _record)
     @user = user
   end
 
@@ -13,6 +13,6 @@ class DemoPolicy < ApplicationPolicy
   end
 
   def demo?
-    true
+    user.member?
   end
 end
