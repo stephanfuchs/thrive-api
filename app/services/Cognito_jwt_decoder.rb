@@ -53,6 +53,9 @@ class CognitoJwtDecoder
       ],
     })
 
+    # Example decoded token
+    # [ { "sub" => "c6e6f88c-8a7f-41a3-8688-112389a68a5f", "cognito:groups" => [ "Admin" ], "email_verified" => true, "iss" => "https://cognito-idp.us-west-2.amazonaws.com/us-west-2_tAuKrxgXB", "cognito:username" => "c6e6f88c-8a7f-41a3-8688-112389a68a5f", "origin_jti" => "cabecb9e-d3a8-4694-a613-0d05a805a6fc", "aud" => "73refvq1gua59llbqb4tbuuq0q", "account_id" => "1", "event_id" => "408a332e-7855-4adc-9ad7-1c3eecaf14ec", "user_id" => "197", "token_use" => "id", "auth_time" => 1717311176, "timezone_id" => "294", "name" => "Stephan Fuchs", "custom:account_id" => "1", "exp" => 1719064254, "iat" => 1719060656, "jti" => "ebebafe4-96e0-4f08-941f-4733f1807b67", "email" => "stephanfuchs@thrivealts.com" }, { "kid" => "sHsOSyQuyuT7j9GFoVGOlG0XAhtudeG0M5XbpYkjVg4=", "alg" => "RS256" } ]
+
     decoded_token
   rescue JWT::DecodeError => e
     puts "Token verification failed: #{e.message}"
