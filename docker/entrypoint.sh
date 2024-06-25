@@ -40,7 +40,8 @@ then
   bundle install
   # 9: Run migrations or set up the database if it doesn't exist
   # Rails >= 6
-  bundle exec rails db:prepare
+  # TODO: (Stephan) consider reenabling this
+  # bundle exec rails db:prepare
   # Rails < 6
   # bundle exec rake db:migrate 2>/dev/null || bundle exec rake db:setup
   # 10: 'Unlock' the setup process:
