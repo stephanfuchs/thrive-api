@@ -39,7 +39,5 @@
 .env.staging
 
 # DB settings
-/config/database.yml
-/config/database_pg.yml
 /db/schema.rb
 

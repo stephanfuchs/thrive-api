@@ -11,6 +11,7 @@ default: &default
   database: <%= ENV.fetch('DATABASE_DATABASE') %>
   port: <%= ENV.fetch('DATABASE_PORT') %>
   schema_cache_path: tmp/schema/dump.yml
+  ssl_mode: required
 
 development:
   <<: *default
