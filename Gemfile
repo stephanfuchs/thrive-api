@@ -44,23 +44,12 @@ gem 'blueprinter'
 gem 'rack-cors'
 gem 'rack-proxy'
 
-# DEPLOYMENT PROVIDERS
-gem 'capistrano',         require: false
-gem 'capistrano-rbenv',   require: false
-gem 'capistrano-rails',   require: false
-gem 'capistrano-bundler', require: false
-gem 'capistrano-sidekiq', require: false
-gem 'capistrano3-puma',   require: false
-
 # WEB SERVER [https://github.com/puma/puma]
 gem "puma", "~> 6.0"
 
 # OTHER
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
 
 # authentication & authorization
 gem 'jwt'
@@ -92,7 +81,6 @@ group :development do
   gem 'awesome_print'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'capistrano-rails-console'
   gem 'aws-sdk-ec2'
   gem 'aws-sdk-autoscaling'
 end
