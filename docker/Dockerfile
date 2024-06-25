@@ -30,6 +30,9 @@ RUN groupadd -g $GID $USER && \
   usermod -aG sudo $USER && \
   echo "$USER ALL=NOPASSWD: ALL" >> /etc/sudoers.d/50-$USER
 
+RUN curl "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem" --output /usr/local/share/ca-certificates/global-bundle.pem \
+  && update-ca-certificates
+
 ENV LANG C.UTF-8
 
 ENV BUNDLE_PATH /gems
