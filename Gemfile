@@ -81,8 +81,6 @@ group :development do
   gem 'awesome_print'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'aws-sdk-ec2'
-  gem 'aws-sdk-autoscaling'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
