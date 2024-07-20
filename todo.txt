@@ -1,0 +1,20 @@
+query SearchPersonV2($searchPersonV2_searchTerm: String!, $searchPersonV2_exact: Boolean, $searchPersonV2_limit: Int, $searchPersonV2_offset: Int) {
+  searchpersonV2(
+    searchTerm: $searchPersonV2_searchTerm
+    exact: $searchPersonV2_exact
+    limit: $searchPersonV2_limit
+    offset: $searchPersonV2_offset
+  ) {
+    id
+  }
+}
+
+
+{
+  "searchPersonV2_searchTerm": "test",
+  "searchPersonV2_limit": 20,
+  "searchPersonV2_offset": 0,
+  "searchPersonV2_exact": false
+}
+
+2. How about auth?
