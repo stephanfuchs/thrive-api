@@ -8,7 +8,7 @@ class GraphqlController < ApplicationController
 
   def execute
     variables = prepare_variables(params[:variables])
-    query = params[:query]&.sub(/^\nquery/, '')
+    query = variables["searchPerson_v2_searchTerm"] ? params[:query]&.sub(/^\nquery/, '') : params[:query]
     operation_name = params[:operationName]
     # binding.pry
     context = {
@@ -24,7 +24,7 @@ class GraphqlController < ApplicationController
     result = ThriveApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
 
     # HACK to convert camelcase to snakecase for demo
-    result['data']&.deep_transform_keys! { |key| key.to_s.underscore }
+    result['data']&.deep_transform_keys! { |key| key.to_s.underscore } if variables["searchPerson_v2_searchTerm"]
 
     render json: result
   rescue StandardError => e
