@@ -60,6 +60,7 @@ Rails.application.configure do
 
   config.hosts << "api-dev.asense.test"
   config.hosts << "api-dev2.asense.test"
+  config.hosts << "api2-dev.asense.test"
   config.hosts << "2926-220-255-198-16.ngrok-free.app"
   config.hosts << "38ea-220-255-198-16.ngrok-free.app"
   config.hosts << "9f6e-220-255-198-16.ngrok-free.app"
